@@ -22,7 +22,23 @@
 
 
 class Account:
-    pass
+
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.balance = balance
+
+    def __repr__(self):
+        return f'{self.owner} has {self.balance} dollars.'
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Balance not enough!")
+        else:
+            self.balance -= amount
+
 
 
 # 1. Instantiate the class
@@ -34,15 +50,14 @@ print(acct1)
 
 
 
-
 # 3. Show the account owner attribute
-acct1.owner
+print(acct1.owner)
 
 
 
 
 # 4. Show the account balance attribute
-acct1.balance
+print(acct1.balance)
 
 
 
@@ -60,7 +75,7 @@ acct1.withdraw(75)
 
 # 6. Make a withdrawal that exceeds the available balance
 acct1.withdraw(500)
-
+print(acct1)
 
 
 # ## Good job!
